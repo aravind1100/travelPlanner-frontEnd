@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'https://travelplanner-backend-zmfv.onrender.com';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api', //  backend URL
+  baseURL: `${BASE_URL}/api`, //  backend URL
   headers: {
     'Content-Type': 'application/json',
   },
