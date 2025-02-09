@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faTachometerAlt, faSignOutAlt, faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../ContextApi";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem("token");
+ 
+  const { isLoggedIn, logout } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    logout();
     navigate("/login");
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);

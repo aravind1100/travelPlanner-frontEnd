@@ -11,8 +11,8 @@ import { faRocket, faPen, faClipboardList, faCalendarAlt, faDollarSign } from '@
 const TripForm = () => {
   const { tripId } = useParams();
   const{selectedTrip}=useAuth();
-  //
-  console.log(selectedTrip)
+  
+  
   const [trip, setTrip] = useState({
     name: selectedTrip ? selectedTrip.tripName:"",
     description: selectedTrip ? selectedTrip.tripDescription:"",

@@ -4,7 +4,7 @@ import { places } from "../utils/data.js";
 import { useAuth } from "../ContextApi.jsx";
 import Footer from "../Components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "../Components/SearchBar.jsx";
+
 
 
 
@@ -23,7 +23,7 @@ const Home = () => {
   const { isLoggedIn ,setSelectedTrip} = useAuth();
   
   const navigate= useNavigate();
-  console.log(isLoggedIn)
+  
 
   // Fetch images for current page
   const fetchImages = useCallback(
