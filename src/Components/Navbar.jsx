@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-blue-500 p-7 text-white shadow-md ">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center pb-3">
         <Link to="/" className="text-xl font-bold">
           Plan Your Travels with Trip Flow
         </Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
         <div className="md:hidden bg-blue-600 p-4 space-y-3">
           <Link
             to="/"
-            className="block hover:text-blue-200 flex items-center gap-x-1"
+            className="hover:text-blue-200 flex items-center gap-x-1"
             onClick={() => setIsMenuOpen(false)}
           >
             <FontAwesomeIcon icon={faHome} className="text-xl" /> Home
@@ -71,7 +71,7 @@ const Navbar = () => {
             <>
               <Link
                 to="/dashboard"
-                className="block hover:text-blue-200 flex items-center gap-x-1"
+                className="hover:text-blue-200 flex items-center gap-x-1"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faTachometerAlt} className="text-xl" /> Dashboard
@@ -81,7 +81,7 @@ const Navbar = () => {
                   handleLogout();
                   setIsMenuOpen(false);
                 }}
-                className="block hover:text-blue-200 flex items-center gap-x-1"
+                className="hover:text-blue-200 flex items-center gap-x-1"
               >
                 <FontAwesomeIcon icon={faSignOutAlt} className="text-xl" /> Logout
               </button>
@@ -90,14 +90,14 @@ const Navbar = () => {
             <>
               <Link
                 to="/login"
-                className="block hover:text-blue-200 flex items-center gap-x-1"
+                className=" hover:text-blue-200 flex items-center gap-x-1"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faSignInAlt} className="text-xl" /> Login
               </Link>
               <Link
                 to="/signup"
-                className="block hover:text-blue-200 flex items-center gap-x-1"
+                className=" hover:text-blue-200 flex items-center gap-x-1"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faUserPlus} className="text-xl" /> Signup
