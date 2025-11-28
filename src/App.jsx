@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
@@ -9,8 +9,13 @@ import TripForm from './Pages/TripForm';
 import TripDetails from './Pages/TripDetails';
 import DestinationForm from './Pages/DestinationForm';
 import BudgetTracker from './Components/BudgetTracker';
+import { useAuth } from './ContextApi';
 
 const App = () => {
+  const { isLoggedIn } = useAuth();
+  const ProtectedRoute = ({ children }) => {
+    return isLoggedIn ? children : <Navigate to="/login" replace />
+  }
   return (
     <Router>
       <div className="flex flex-col min-h-screen bg-gray-100">
@@ -25,7 +30,7 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
 
             {/* Dashboard and Trip Management */}
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/trips/new" element={<TripForm />} />
             <Route path="/trips/:tripId/edit" element={<TripForm />} />
             <Route path="/trips/:tripId" element={<TripDetails />} />
@@ -42,6 +47,8 @@ const App = () => {
 
             {/* Budget Tracker */}
             <Route path="/trips/:tripId/budget" element={<BudgetTracker />} />
+            {/* Fallbacks */}
+            <Route path="*" element={<p className='font-bold text-center mt-10 text-3xl'>404 Page not found</p>} />
           </Routes>
         </div>
       </div>
